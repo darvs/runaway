@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+FSTYPE=$(df --output=fstype . | tail +2)
+
+if [ "${FSTYPE}" = "fuse.sshfs" ]; then
+
+	MOUNTPOINT=$(stat -c "%m" .)
+	MOUNTSPEC=$(mount -t fuse.sshfs | grep "on ${MOUNTPOINT} type fuse.sshfs" | cut -d" " -f1)
+	REMOTE=$(echo ${MOUNTSPEC} | cut -d: -f1)
+	REMOTEPATH=$(echo ${MOUNTSPEC} | cut -d: -f2)
+
+	ssh ${REMOTE} "cd ${REMOTEPATH} && $*"
+else
+	$*
+fi
