@@ -24,6 +24,7 @@ Will print the local host name, for instance `localhost`.
 cd /tmp
 mkdir /tmp/project
 sshfs remote:/usr/local/src/project /tmp/project
+cd /tmp/project
 runaway hostname
 runaway make
 ```
