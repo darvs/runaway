@@ -18,7 +18,7 @@ cd /tmp
 runaway hostname
 ```
 
-Will print the local host name, for instance `localhost`.
+Will print the local host name, for instance "localhost".
 
 ```bash
 cd /tmp
@@ -29,4 +29,4 @@ runaway hostname
 runaway make
 ```
 
-Will print the hostname of the remote machine (`remote`) and launch make on the `remote` host.
+Will print the hostname of the remote machine ("remote") and launch make on the "remote" host.
